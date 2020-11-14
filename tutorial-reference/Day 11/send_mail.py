@@ -59,11 +59,8 @@ class Emailer():
                 server.starttls()
                 server.login(username, password)
                 try:
-                    server.sendmail(from_email, to_emails, msg_str)
+                    server.sendmail(self.from_email, self.to_emails, msg)
                     did_send = True
                 except:
                     did_send = False
         return did_send
-    # with smtplib.SMTP() as server:
-    #     server.login()
-    #     pass
