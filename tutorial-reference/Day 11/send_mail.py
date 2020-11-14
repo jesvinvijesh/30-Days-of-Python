@@ -5,7 +5,7 @@ from email.mime.multipart import MIMEMultipart
 from templates import Template
 # environment variables
 username = 'hungrypy@gmail.com'
-password = '<your password>'
+password = '<Your Password>'
 
 class Emailer():
     subject = ""
@@ -13,7 +13,7 @@ class Emailer():
     to_emails = []
     has_html = False
     test_send = False
-    from_email  = 'Hungry Py <hungrypy@gmail.com>'
+    from_email  = 'Jesvin <jesvinmsj@gmail.com>'
     template_html = None
     template_name = None
     
@@ -59,11 +59,8 @@ class Emailer():
                 server.starttls()
                 server.login(username, password)
                 try:
-                    server.sendmail(from_email, to_emails, msg_str)
+                    server.sendmail(self.from_email, self.to_emails, msg)
                     did_send = True
                 except:
                     did_send = False
         return did_send
-    # with smtplib.SMTP() as server:
-    #     server.login()
-    #     pass
